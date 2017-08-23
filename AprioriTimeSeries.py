@@ -41,10 +41,11 @@ def scanD(D,Ck,minSupport):
     for tid in D:
         for can in Ck:
             if(can.issubset(tid)):
-                if(not ssCnt.has_key(can)):
-                    ssCnt[can]=1;
-                else:
-                    ssCnt[can]+=1;
+                if correspondToTimeSeriesFrozenset(can,tid)==True:
+                    if(not ssCnt.has_key(can)):
+                        ssCnt[can]=1;
+                    else:
+                        ssCnt[can]+=1;
     numItems=float(len(D))
     retList=[];
     supportData={}
@@ -101,15 +102,17 @@ def generateRules(L,supportData,minConf=0.7):
 '''
     对规则进行评估
 '''
+
+
 def calcConf(freqSet, H, supportData, br1, minConf=0.7):
+    #print 'supportData:',supportData
     #满足最小可信度要求的规则列表
     prunedH=[];
     for conseq in H:
-        conf=supportData[freqSet]/supportData[freqSet-conseq]
+        #print 'debug info:',supportData[freqSet],
+        #conf=supportData[freqSet]/supportData[freqSet-conseq]
+        conf=supportData.get(freqSet,0)/supportData.get(freqSet-conseq,10000000000000000)
         if conf>=minConf:
-            '''
-            此处应该还有条件，就是要保证时序
-           '''
             print freqSet-conseq,'---->',conseq,'conf:',conf
             br1.append((freqSet-conseq,conseq,conf))
             prunedH.append(conseq)
@@ -126,12 +129,70 @@ def rulesFromConseq(freqSet, H, supportData, br1, minConf=0.7):
         if(len(Hmp1)>1):
             rulesFromConseq(freqSet,Hmp1,supportData,br1,minConf)
 
+'''
+    检测一个频繁项集，是否符合时序关系
+'''
+def correspondToTimeSeriesFrozenset(freqSet, dataSet):
+    index=-1;
+    preIndex=-1;
+    for item in freqSet:
+            if item in dataSet:
+                index=list(dataSet).index(item);
+                if index<=preIndex:
+                    return False
+                preIndex=index
+            else:
+                continue
+    return True;
+
+
+
+'''
+    检测一个频繁项集，是否符合时序关系
+'''
+def correspondToTimeSeriesList(freqSet, dataSet):
+    index=-1;
+    preIndex=-1;
+    for item in freqSet:
+        for line in dataSet:
+            if item in line:
+                index=line.index(item);
+                if index>preIndex:
+                    return True
+                preIndex=index
+            else:
+                continue
+    return False;
+
+'''
+    根据时序关系删减规则
+'''
+def pruneRules(rules,dataSet):
+    prunedIndexList=[]
+    index=0
+    for item in rules:
+        line=list(item[0])+list(item[1])
+        if False==correspondToTimeSeriesList(line,dataSet):
+            prunedIndexList.append(index)
+        index+=1
+    prunedIndexList.reverse();
+    print prunedIndexList
+    for index in prunedIndexList:
+        rules.remove(index)
+    return rules
+
 if __name__=='__main__':
     filePath = 'C:\\Users\\shankai\\Desktop\\trace_input.csv_sk.csv';
     dataSet=loadDataSet(filePath)
-    L,supportData=apriori(dataSet,minSupport=0.001);
+    L,supportData=apriori(dataSet,minSupport=0.01);
     rules=generateRules(L,supportData,minConf=0.1);
-    print rules
+    print rules.__len__()
+    #print rules
+    # rules=pruneRules(rules,dataSet)
+    # print '-------------------------------------------------------------------------------------------------'
+    # print rules.__len__()
+    # print rules
+
 
     # dataSet=loadSolidDataSet();
     # L,supportData=apriori(dataSet,minSupport=0.5)

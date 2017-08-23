@@ -1,0 +1,45 @@
+E:\Python27\python.exe E:/MyEclipseWorkSpace/Apriori/AprioriTimeSeries.py
+frozenset(['49994']) ----> frozenset(['6895']) conf: 0.909090909091
+frozenset(['51596']) ----> frozenset(['6895']) conf: 0.909090909091
+frozenset(['47036']) ----> frozenset(['39152']) conf: 0.1875
+frozenset(['51724']) ----> frozenset(['39152']) conf: 0.833333333333
+frozenset(['51724']) ----> frozenset(['51591']) conf: 1.0
+frozenset(['51591']) ----> frozenset(['51724']) conf: 0.75
+frozenset(['51596']) ----> frozenset(['51724']) conf: 0.818181818182
+frozenset(['51724']) ----> frozenset(['51596']) conf: 0.75
+frozenset(['51596']) ----> frozenset(['39152']) conf: 0.818181818182
+frozenset(['39152']) ----> frozenset(['6895']) conf: 0.964383561644
+frozenset(['6895']) ----> frozenset(['39152']) conf: 0.944966442953
+frozenset(['51724']) ----> frozenset(['6895']) conf: 0.916666666667
+frozenset(['39373']) ----> frozenset(['6895']) conf: 0.857142857143
+frozenset(['49994']) ----> frozenset(['39152']) conf: 0.909090909091
+frozenset(['6896']) ----> frozenset(['6895']) conf: 0.75
+frozenset(['47036']) ----> frozenset(['6895']) conf: 0.1875
+frozenset(['39373']) ----> frozenset(['39152']) conf: 0.714285714286
+frozenset(['51596']) ----> frozenset(['51591']) conf: 0.909090909091
+frozenset(['51591']) ----> frozenset(['51596']) conf: 0.625
+frozenset(['51591']) ----> frozenset(['39152']) conf: 0.5625
+frozenset(['51591']) ----> frozenset(['6895']) conf: 0.5
+frozenset(['51596']) ----> frozenset(['51591', '39152']) conf: 0.454545454545
+frozenset(['51591']) ----> frozenset(['39152', '51596']) conf: 0.3125
+frozenset(['51724']) ----> frozenset(['51591', '39152']) conf: 0.416666666667
+frozenset(['51591']) ----> frozenset(['39152', '51724']) conf: 0.3125
+frozenset(['51724']) ----> frozenset(['6895', '39152']) conf: 0.416666666667
+frozenset(['49994']) ----> frozenset(['6895', '39152']) conf: 0.727272727273
+frozenset(['51596']) ----> frozenset(['51591', '6895']) conf: 0.545454545455
+frozenset(['51591']) ----> frozenset(['6895', '51596']) conf: 0.375
+frozenset(['51591']) ----> frozenset(['6895', '39152']) conf: 0.4375
+frozenset(['51724']) ----> frozenset(['51591', '6895']) conf: 0.5
+frozenset(['51591']) ----> frozenset(['6895', '51724']) conf: 0.375
+frozenset(['47036']) ----> frozenset(['6895', '39152']) conf: 0.15625
+frozenset(['51596']) ----> frozenset(['6895', '51724']) conf: 0.727272727273
+frozenset(['51724']) ----> frozenset(['6895', '51596']) conf: 0.666666666667
+frozenset(['51596']) ----> frozenset(['6895', '39152']) conf: 0.545454545455
+frozenset(['51596']) ----> frozenset(['51591', '51724']) conf: 0.818181818182
+frozenset(['51724']) ----> frozenset(['51591', '51596']) conf: 0.75
+frozenset(['51591']) ----> frozenset(['51724', '51596']) conf: 0.5625
+frozenset(['51596']) ----> frozenset(['39152', '51724']) conf: 0.636363636364
+frozenset(['51724']) ----> frozenset(['39152', '51596']) conf: 0.583333333333
+41
+
+Process finished with exit code 0

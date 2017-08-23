@@ -1,0 +1,15 @@
+E:\Python27\python.exe E:/MyEclipseWorkSpace/Apriori/AprioriTimeSeries.py
+frozenset(['51596']) ----> frozenset(['6895']) conf: 0.909090909091
+frozenset(['49994']) ----> frozenset(['6895']) conf: 0.909090909091
+frozenset(['51596']) ----> frozenset(['51591']) conf: 0.909090909091
+frozenset(['51591']) ----> frozenset(['51596']) conf: 0.625
+frozenset(['39152']) ----> frozenset(['6895']) conf: 0.964383561644
+frozenset(['6895']) ----> frozenset(['39152']) conf: 0.944966442953
+frozenset(['51724']) ----> frozenset(['6895']) conf: 0.916666666667
+frozenset(['49994']) ----> frozenset(['39152']) conf: 0.909090909091
+frozenset(['51724']) ----> frozenset(['39152']) conf: 0.833333333333
+frozenset(['51724']) ----> frozenset(['51591']) conf: 1.0
+frozenset(['51591']) ----> frozenset(['51724']) conf: 0.75
+11
+
+Process finished with exit code 0
